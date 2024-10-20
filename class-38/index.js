@@ -37,3 +37,7 @@ function handleBorder() {
 function handleRemoveStyle() {
   document.getElementById("img1").className = "";
 }
+
+function handleRSC(removeClassName, tagId) {
+  // document.getElementById(tagId).classList.remove(removeClassName);
+}
