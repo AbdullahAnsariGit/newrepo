@@ -194,35 +194,35 @@ var plan1 = {
 // var checkPriceExistOrNot = "abc" in plan1;
 // console.log("checkPriceExistOrNot", checkPriceExistOrNot);
 
-var plan1 = {
-  name: "Basic",
-  price: 3.99,
-  space: 100,
-  transfer: 1000,
-  pages: 10,
-  discountMonths: [0, 7, 11],
-  //   January,
-  //   Augest,
-  //   November,
-};
+// var plan1 = {
+//   name: "Basic",
+//   price: 3.99,
+//   space: 100,
+//   transfer: 1000,
+//   pages: 10,
+//   discountMonths: [0, 7, 11],
+//   //   January,
+//   //   Augest,
+//   //   November,
+// };
 
-function calcAnnual(percentIfDisc) {
-  var bestPrice = plan1.price;
-  var currDate = new Date();
-  var thisMo = currDate.getMonth(); // 0 to 11 - 0 == january
-  for (var i = 0; i < plan1.discountMonths.length; i++) {
-    if (plan1.discountMonths[i] === thisMo) {
-      bestPrice = plan1.price * percentIfDisc;
-      break;
-    }
-  }
+// function calcAnnual(percentIfDisc) {
+//   var bestPrice = plan1.price;
+//   var currDate = new Date();
+//   var thisMo = currDate.getMonth(); // 0 to 11 - 0 == january
+//   for (var i = 0; i < plan1.discountMonths.length; i++) {
+//     if (plan1.discountMonths[i] === thisMo) {
+//       bestPrice = plan1.price * percentIfDisc;
+//       break;
+//     }
+//   }
 
-  var getBody = document.querySelector("body");
-  var createEl = document.createElement("div");
-  createEl.innerHTML = bestPrice * 12;
-  getBody.appendChild(createEl);
-}
+//   var getBody = document.querySelector("body");
+//   var createEl = document.createElement("div");
+//   createEl.innerHTML = bestPrice * 12;
+//   getBody.appendChild(createEl);
+// }
 
-var annualPrice = calcAnnual(0.85);
+// var annualPrice = calcAnnual(0.85);
 
-console.log("annualPrice", annualPrice);
+// console.log("annualPrice", annualPrice);
