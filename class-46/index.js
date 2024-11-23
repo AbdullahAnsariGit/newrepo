@@ -109,7 +109,7 @@
 // var p1 = new Plan("Basic", 3.99, 100, 1000, 10, [6, 7]);
 // var p2 = new Plan("Premium", 5.99, 500, 5000, 50, [6, 7, 11]);
 // var p3 = new Plan("Ultimate", 9.99, 2000, 20000, 500, [6, 7]);
-// // var p3 = new Plan("Ultimate", 9.99, 2000, 20000, 500, [6, 7]);
+// var p3 = new Plan("Ultimate", 9.99, 2000, 20000, 500, [6, 7]);
 
 // console.log("p1", p1);
 // console.log("p2", p2);
