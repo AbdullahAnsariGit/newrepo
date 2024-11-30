@@ -87,3 +87,9 @@ a = {
 console.log(a);
 
 var a = "alex";
+
+// Helpful Resources:
+
+// https://www.geeksforgeeks.org/difference-between-var-let-and-const-keywords-in-javascript/
+// https://blog.coolhead.in/difference-between-function-scope-and-block-scope-in-javascript
+// https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/
