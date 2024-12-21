@@ -1,73 +1,60 @@
 // Closures Example:
 
 //Example 01:
-function outerFunction() {
-  var outerVariable = "Hello";
-  console.log("Outer function executed and finished!");
+// function outerFunction() {
+//   var outerVariable = "Hello";
+//   console.log("Outer function executed and finished!");
 
-  return function innerFunction() {
-    console.log("------", outerVariable); // Access Yes or Not?
-  };
-  //   return innerFunction;
-}
+//   function innerFunction() {
+//     console.log(outerVariable); // Access Yes or Not?
+//   }
+//   return innerFunction;
+// }
 
 // Outer function execute done
-var outerFunctionResult = outerFunction();
+// var outerFunctionResult = outerFunction();
 
 // Now inner function is executed
-outerFunctionResult();
+// outerFunctionResult();
 
 //Example 02:
-function counter() {
-  let count = 0; // Local variable jo outerFunction ke andar define hai
-  console.log("Counter function executed and finished!");
+// function counter() {
+//   let count = 0; // Local variable jo outerFunction ke andar define hai
+//   console.log("Counter function executed and finished!");
 
-  return function increment() {
-    count++;
-    console.log(`Current count: ${count}`); // count ko access kar raha hai
-  };
-}
+//   return function increment() {
+//     count++;
+//     console.log(`Current count: ${count}`); // count ko access kar raha hai
+//   };
+// }
 
 // Counter function execute ho gayi
-let counterFunction = counter();
+// let counterFunction = counter();
 
-// Ab increment function ko bar-bar call karte hain
-counterFunction(); // Output: Current count: 1
-counterFunction(); // Output: Current count: 2
-counterFunction(); // Output: Current count: 3
+// // Ab increment function ko bar-bar call karte hain
+// counterFunction(); // Output: Current count: 1
+// counterFunction(); // Output: Current count: 2
+// counterFunction(); // Output: Current count: 3
 
 // Destructuring
 // Problem
-
-const array = [
-  17,
-  "BSCS",
-  [97, "Abc"],
-  "male",
-  {
-    name: undefined,
-    age: 12,
-  },
-];
+// const array = ["alex", 17, "BSCS"];
 // const name = array[0];
-// const age = array[1];
-// const degree = array[2];
-const [name2, age2, degree, [marks, address], { name = "alex", age }] = array;
-console.log("----", name2, age2, degree, marks, address, name, age);
+// const age = array[0];
+// const degree = array[0];
 
-// Example 01:
-const [first, second, third] = array; // Destructuring
+// // Example 01:
+// const [first, second, third] = array; // Destructuring
 
-console.log(first); // Output: 1
-console.log(second); // Output: 2
+// console.log(first); // Output: 1
+// console.log(second); // Output: 2
 
-// Example 02:
-function fnD([first, second, third]) {
-  console.log(first); // Output:
-  console.log(second); // Output:
-  console.log(third); // Output:
-}
-fnD([1, 2, 3]);
+// function fnD([first, second, third]) {
+//   console.log(first); // Output:
+//   console.log(second); // Output:
+//   console.log(third); // Output:
+// }
+// fnD([1, 2, 3]);
 
 // function fnD2(){
 //     return [1,2,3]
@@ -81,11 +68,7 @@ fnD([1, 2, 3]);
 // Spread Operator
 
 // Example 01
-const arr1 = [1, 2, 3];
-const arr2 = [...arr1, 5, 7, 8];
-
-// console.log(newArr, "✨Spread😊");
-
+// const arr1 = [1, 2, 3];
 // const arr2 = [...arr1, 4, 5];
 // console.log(arr2);
 
@@ -95,34 +78,19 @@ const arr2 = [...arr1, 5, 7, 8];
 
 // Rest Operator
 
-function restOperator(...rest) {
-  console.log(rest, "💕Rest💕");
-}
-
-restOperator(1, 2, 3, 4, 5, 6);
-
 // Example 01
-function sumAll(...numbers) {
-  console.log(numbers);
-  // return numbers.reduce((acc, num) => acc + num, 0);
-}
+// function sumAll(...numbers) {
+//   console.log(numbers);
+//   // return numbers.reduce((acc, num) => acc + num, 0);
+// }
 
-console.log(sumAll(1, 2, 3, 4));
-// Task 1 Write a function, Pass 1 to 20 numbers, Find even number and return it
-// Task 2 Write a function findMax that takes any number of numeric arguments and returns the maximum value among them using the rest operator.
+// console.log(sumAll(1, 2, 3, 4));
+
+// Task 1 Write a function findMax that takes any number of numeric arguments and returns the maximum value among them using the rest operator.
 
 // Enhanced Object Literals
 
 // 1 - Property Shorthand
-
-const naam = "Ali";
-const umer = 22;
-let obj = {
-  naam,
-  umer,
-};
-
-console.log("🎶Object😢", obj);
 
 // Example
 // const nameObj = "Ali";
@@ -137,26 +105,26 @@ console.log("🎶Object😢", obj);
 
 // 2 - Method Shorthand
 
-const person = {
-  name: "Sara",
-  greet() {
-    // Shorthand
-    console.log(`Hello, my name is ${this.name}.`);
-  },
-};
+// const person = {
+//   name: "Sara",
+//   greet() {
+//     // Shorthand
+//     console.log(`Hello, my name is ${this.name}.`);
+//   },
+// };
 
-person.greet(); // Output: Hello, my name is Sara.
+// person.greet(); // Output: Hello, my name is Sara.
 
 // 3 - Computed Property Names
 
-let key = "hobby";
+// const key = "hobby";
 
-const personC = {
-  name: "Zain",
-  [key]: "Cricket", // Dynamic property name
-};
+// const personC = {
+//   name: "Zain",
+//   [key]: "Cricket", // Dynamic property name
+// };
 
-console.log(personC.hobby, "🤞Computed Property🤷‍♂️"); // { name: "Zain", hobby: "Cricket" }
+// console.log(personC); // { name: "Zain", hobby: "Cricket" }
 
 // Array methods in js
 
@@ -175,30 +143,92 @@ console.log(personC.hobby, "🤞Computed Property🤷‍♂️"); // { name: "Za
 
 // 2. Combining/Extracting
 // concat(): Do ya zyada arrays ko combine karta hai.
-// Example: [1, 2].concat([3, 4]) → [1, 2, 3, 4]
+// Example 01: [1, 2].concat([3, 4]) → [1, 2, 3, 4]
 
-let concatArr1 = [1, 2, 3, 4];
-let mergeArray = concatArr1.concat(5, 6, 7);
-console.log('👀MergeArray😍',mergeArray);
+// Example 02:
+// let arr = [1, 2, 3, 4, 5];
+// let arr2 = [6, 7, 8, 9, 10];
+
+// let fullArr = arr.concat(arr2);
+// console.log("fullArr", fullArr);
 
 // slice(): Array ke ek portion ko extract karta hai (original array change nahi hoti).
 // Example: [1, 2, 3, 4, 5].slice(1, 3) → [2, 3]
 
+// let arr = [1, 2, 3, 4, 5];
+// let arr2 = [6, 7, 8, 9, 10];
+
+// let copyArr = arr.slice(0, 2);
+// console.log("copyArr", copyArr);
+
 // splice(): Array me elements add/remove karta hai.
 // Example: [1, 2, 3, 4].splice(2, 1, "new") → [1, 2, "new", 4]
+
+// var arr = [37, 4, 92, 66, 1, 4, 6, 278, 2, 5, 17];
+
+// arr.splice(4, 2, 10, 87, 70);
+// console.log(arr, "spliceArr");
+
+// Waqas: 37,4,92,66,10,87,70,6,278,2,5,17 = 12 votes
+
+//Naveed = 1745 = 0 Pak
+//Yahya= 1457 = 1
+//Waqas = 7345 = 6 votes
+//Ali = 745 = 2
+//hadi 457 = 0 Pak
+//Mudassir = 3457 = 2
 
 // 3. Iteration Methods
 // forEach(): Har element ke liye ek function run karta hai (kuch return nahi karta).
 // Example: [1, 2, 3].forEach(num => console.log(num * 2))
 
+// var arr = [37, 4, 92, 66, 1, 4, 6, 278, 2, 5, 17];
+// let abc = arr.forEach((anarkali, index) => console.log(anarkali, `Yehlo ${index}`))
+
+// Test
+
+// 1- Slice the array to extract a subarray that contains only the first three elements.
+// 2- Splice the original array by removing the last two elements and inserting the values [0, 0] at the same position.
+// 3- ForEach the modified array to print each element to the console, but for every element that is even, print EVEN instead of the number.
+
 // map(): Naya array banata hai har element par function apply karke.
 // Example: [1, 2, 3].map(num => num * 2) → [2, 4, 6]
+
+// var arr = [37, 4, 92, 66, 1, 4, 6, 278, 2, 5, 17];
+
+// let newArr = arr.map((item, index) => {
+//   if (item % 2 === 0) {
+//     return item;
+//   } else {
+//     return "Odd";
+//   }
+// });
+// console.log(arr);
+
+// console.log("newArr", newArr);
 
 // filter(): Ek naya array banata hai sirf un elements ka jo condition pass karein.
 // Example: [1, 2, 3, 4].filter(num => num % 2 === 0) → [2, 4]
 
+// var categories = ["Home Appliances", "Mobile Phones", "Computers", "Gadgets"];
+
+// var searchQuery = prompt("Enter category:");
+// var filteredArr = categories.map((item, index) => {
+//   if (item.toLowerCase().trim() === searchQuery.toLowerCase().trim()) {
+//     return item;
+//   }
+// });
+
+// console.log(filteredArr)
+
+// Example:
+
 // reduce(): Ek single value return karta hai array ke elements ko combine karke.
 // Example: [1, 2, 3, 4].reduce((acc, num) => acc + num, 0) → 10
+
+// let reduceArr = [1, 2, 3, 4].reduce((acc, num) => {
+//   return acc + num;
+// }, 0);
 
 // find(): Pehla element return karta hai jo condition pass karein.
 // Example: [1, 2, 3, 4].find(num => num % 2 === 0) → 2
@@ -232,3 +262,70 @@ console.log('👀MergeArray😍',mergeArray);
 
 // isArray(): Check karta hai agar variable array hai ya nahi.
 // Example: Array.isArray([1, 2, 3]) → true
+
+// Callback in Js
+
+// Defination:
+// callback ek function hai jo dusre function ko ek kaam khatam hone ke baad chalane ke liye diya jata hai.
+
+// Real life example:
+// Man lijiye aap kisi dost ko phone karte hain aur kehte hain:
+// "Mujhe tumhari help chahiye, kaam pura ho jaye to mujhe batana."
+
+// Yahaan:
+
+// 1- Aapka dost kaam karega (yeh main function hai).
+// 2- Jab kaam pura hoga, tab aapko batayega (yeh callback function hai).
+
+// // Example code:
+// function kaamPuraHua(message) {
+//     console.log("Callback function chal gaya: " + message);
+// }
+
+// function kaamKaro(callback) {
+//     console.log("Kaam shuru ho gaya...");
+//     setTimeout(() => {
+//         console.log("Kaam pura ho gaya!");
+//         callback("Yeh hai callback ka message.");
+//     }, 2000); // 2 second ka delay
+// }
+
+// // Callback function pass kiya
+// kaamKaro(kaamPuraHua);
+
+// Task: Countdown Timer with a Callback
+// Ek function banao jo countdown kare, jaise 5 se 0 tak numbers print kare.
+// Jab countdown khatam ho jaye, tab ek callback function ko call kare jo ek message display kare, jaise "Countdown Complete!".
+
+// Requirements:
+// Ek function ho countdown, jo ek number se countdown kare.
+// Ek callback function pass ho jo tab chale jab countdown khatam ho.
+// setTimeout ka use karo har number ke beech delay ke liye.
+
+// Output
+// 5
+// 4
+// 3
+// 2
+// 1
+// 0
+// Countdown Complete!
+
+// function countdown(start, callback) {
+//     function displayNumber(num) {
+//       if (num < 0) {
+//         callback(); // Jab countdown khatam ho jaye
+//         return;
+//       }
+//       console.log(num);
+//       setTimeout(() => displayNumber(num - 1), 1000); // 1 second delay
+//     }
+//     displayNumber(start);
+//   }
+
+//   function onComplete() {
+//     console.log("Countdown Complete!");
+//   }
+
+//   // Call the countdown function
+//   countdown(5, onComplete);
