@@ -213,7 +213,7 @@
 // var categories = ["Home Appliances", "Mobile Phones", "Computers", "Gadgets"];
 
 // var searchQuery = prompt("Enter category:");
-// var filteredArr = categories.map((item, index) => {
+// var filteredArr = categories.filter((item, index) => {
 //   if (item.toLowerCase().trim() === searchQuery.toLowerCase().trim()) {
 //     return item;
 //   }
@@ -226,29 +226,101 @@
 // reduce(): Ek single value return karta hai array ke elements ko combine karke.
 // Example: [1, 2, 3, 4].reduce((acc, num) => acc + num, 0) → 10
 
-// let reduceArr = [1, 2, 3, 4].reduce((acc, num) => {
-//   return acc + num;
-// }, 0);
+// let reduceArr = [1, 2, 3, 4].reduce((prevVal, num) => {
+//   console.log("prevVal", prevVal);
+//   console.log("num", num);
+//   // return prevVal * num;
+// });
+// console.log(reduceArr);
+// 1: 1 * 1 = 1
+// 2: 1 * 2 = 2
+// 3: 2 * 3 = 6
+// 4: 6 * 4 = 24
 
-// find(): Pehla element return karta hai jo condition pass karein.
+// console.log('reduceArr',reduceArr)
+
+// find(): Pehla element return karta hai jo condition pass karein uske allawa values ko check nh krta. Jo array me value nh h toh yh return krega undefined
 // Example: [1, 2, 3, 4].find(num => num % 2 === 0) → 2
 
-// findIndex(): Pehle element ka index return karta hai jo condition pass karein.
+// let fruits = [
+//   "apple",
+//   "mango",
+//   "banana",
+//   "orange",
+//   "grapes",
+//   "apple",
+//   "mango",
+//   "banana",
+//   "orange",
+//   "grapes",
+// ];
+
+// let findFruit = fruits.find((element, index) => {
+//   return element === "grapes" ;
+// });
+
+// console.log('findFruit',findFruit);
+
+// findIndex(): Pehle element ka index return karta hai jo condition pass karein. jo value array me nh h toh yh return krega -1
 // Example: [1, 2, 3, 4].findIndex(num => num > 2) → 2
+
+// let fruits = [
+//   "apple",
+//   "mango",
+//   "banana",
+//   "orange",
+//   "grapes",
+//   "apple",
+//   "mango",
+//   "banana",
+//   "orange",
+//   "grapes",
+// ];
+
+// let findFruit = fruits.findIndex((element) => {
+//   return element === "grap";
+// });
+
+// console.log("findFruit", findFruit);
 
 // 4. Checking/Searching
 // includes(): Check karta hai agar value array me hai ya nahi (true/false).
 // Example: [1, 2, 3].includes(2) → true
 
+// let arr = [1,24,5,6,78,9]
+
+// let checkArray = arr.includes(77);
+
+// console.log('checkArray',checkArray)
+
 // indexOf(): Value ka pehla index return karta hai (nahi mila to -1).
 // Example: [1, 2, 3].indexOf(2) → 1
+
+// let arr = [1,24,5,6,78,9,78];
+
+// let checkElIndex = arr.indexOf(78);
+// console.log(checkElIndex)
 
 // lastIndexOf(): Value ka last index return karta hai.
 // Example: [1, 2, 3, 2].lastIndexOf(2) → 3
 
+// let  arr = [1,24,5,6,78,9,78];
+// let checkLastElIndex = arr.lastIndexOf(78)
+// console.log('checkLastElIndex',checkLastElIndex);
+
 // 5. Sorting/Transforming
 // sort(): Array ke elements ko sort karta hai (default ascending).
 // Example: [3, 1, 4, 2].sort() → [1, 2, 3, 4]
+
+// let arr = [1, 13, 36, 2, 8, 17];
+
+// let sortArr = arr.sort();
+// console.log("sortArr", sortArr);
+
+// Naveed : 1,2,8,13,17,36 = 10 values
+// hadi : 1,2,13,8,17,36 = 1 votes
+// Sameer: 1,2,13,17,8,36  = 1 vates
+// Shameer: undefined = 1
 
 // reverse(): Array ke elements ka order ulta karta hai.
 // Example: [1, 2, 3].reverse() → [3, 2, 1]
