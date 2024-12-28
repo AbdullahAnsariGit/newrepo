@@ -313,8 +313,13 @@
 // Example: [3, 1, 4, 2].sort() → [1, 2, 3, 4]
 
 // let arr = [1, 13, 36, 2, 8, 17];
+// let arr = [2,1,5,3,4]
 
-// let sortArr = arr.sort();
+// let sortArr = arr.sort((a, b) => {
+//   console.log(a, b);
+//   console.log(a - b);
+//   return a-b
+// });
 // console.log("sortArr", sortArr);
 
 // Naveed : 1,2,8,13,17,36 = 10 values
@@ -325,15 +330,78 @@
 // reverse(): Array ke elements ka order ulta karta hai.
 // Example: [1, 2, 3].reverse() → [3, 2, 1]
 
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+// let arr = ['apple', 'mango', 'banana', 'orange'];
+
+// let reverseArr = arr.reverse();
+// console.log("reverseArr", reverseArr);
+
 // 6. Others
 // join(): Array ke elements ko ek string me combine karta hai.
 // Example: [1, 2, 3].join('-') → "1-2-3"
+// let arr = ["apple", "mango", "banana", "orange"];
+// let joinAlp = arr.join(" and ");
+// console.log('joinAlp', joinAlp)
 
 // split(): String ko array me todta hai (Array ka part nahi, string ka method hai).
 // Example: "1-2-3".split('-') → [1, 2, 3]
 
+// let word = "apple mango banana";
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+// let obj = {
+//     name:'abc',
+//     class:1
+// }
+
+// let makeArr = word.split(" ");
+
+// console.log('makeArr', makeArr);
+
 // isArray(): Check karta hai agar variable array hai ya nahi.
 // Example: Array.isArray([1, 2, 3]) → true
+
+// let checkArr = Array.isArray(obj);
+// console.log(checkArr);
+
+// 1. Reverse Each Word in a Sentence
+// Write a function that takes a string, reverses each word in the string, and returns the modified string.
+// Use split to break the sentence into words, reverse to reverse each word, and join to combine them back.
+
+// Example Input/Output:
+// javascript
+// Copy code
+// reverseWords("hello world"); // "olleh dlrow"
+// reverseWords("JavaScript is fun"); // "tpircSavaJ si nuf"
+
+// function reverseWords(a) {
+//   //   let makeArr = a.split(" ");
+//   //   let reverseWordIntoArr = makeArr.map((item, index) => {
+//   //     return item.split("").reverse().join("");
+//   //   });
+
+//   //   let arrayConvertIntoWord = reverseWordIntoArr.join(" ");
+//   //   return arrayConvertIntoWord;
+//   return a
+//     .split(" ")
+//     .map((item) => item.split("").reverse().join(""))
+//     .join(" ");
+// }
+
+// console.log(reverseWords("My name is alex")); // "olleh dlrow"
+
+// SetTimeOut in Js
+
+let mybtn = document.getElementById("btn");
+
+mybtn.addEventListener("click", () => {
+  //   setTimeout(() => {
+  //     alert("Stop");
+  //   }, 10000);
+
+//   setInterval(() => {
+//     console.log("Js is fun");
+//   }, 3000);
+});
 
 // Callback in Js
 
@@ -349,21 +417,25 @@
 // 1- Aapka dost kaam karega (yeh main function hai).
 // 2- Jab kaam pura hoga, tab aapko batayega (yeh callback function hai).
 
-// // Example code:
-// function kaamPuraHua(message) {
-//     console.log("Callback function chal gaya: " + message);
-// }
+// Example code:
+function kaamPuraHua(message) {
+    console.log("Callback function chal gaya: " + message);
+}
 
-// function kaamKaro(callback) {
-//     console.log("Kaam shuru ho gaya...");
-//     setTimeout(() => {
-//         console.log("Kaam pura ho gaya!");
-//         callback("Yeh hai callback ka message.");
-//     }, 2000); // 2 second ka delay
-// }
+function kaamKaro(callback) {
+    console.log("Kaam shuru ho gaya...");
+    setTimeout(() => {
+        console.log("Kaam pura ho gaya!");
+        callback("Yeh hai callback ka message.");
+    }, 5000); // 2 second ka delay
+}
 
-// // Callback function pass kiya
-// kaamKaro(kaamPuraHua);
+// Callback function pass kiya
+kaamKaro(kaamPuraHua);
+
+
+
+
 
 // Task: Countdown Timer with a Callback
 // Ek function banao jo countdown kare, jaise 5 se 0 tak numbers print kare.
