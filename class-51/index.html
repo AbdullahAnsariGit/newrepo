@@ -4,135 +4,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Concepts</title>
+    <title>Document</title>
 </head>
 
 <body>
-    <h1>JavaScript Concepts</h1>
-    <button id="btn">Set Time Out</button>
-    <section>
-        <h2>Done Topics</h2>
-        <h3>Template literals</h3>
-        <h3>Variable Scoping</h3>
-        <h3>Arrow functions</h3>
-    </section>
-    <!-- Closure Section -->
-    <section>
-        <h2>Closure</h2>
-        <p>Closure JavaScript me ek function ke andar dusre function ko access karne ki ability hai, chahe outer
-            function execute ho chuka ho. Ye inner function apne lexical scope ke variables ko yaad rakhta hai.</p>
-    </section>
+    <!-- Done Topics -->
+    <!-- <h1>Template literals</h1> -->
+    <!-- <h1>Variable Scoping</h1> -->
+    <!-- <h1>Arrow functions</h1> -->
+    <!-- <h1>Ternary Operator</h1> -->
 
-    <!-- Lexical Scope Section -->
-    <section>
-        <h2>Lexical Scope</h2>
-        <p>Lexical scope JavaScript me ek rule hai jo define karta hai ki variables ko kaha se access kiya ja sakta hai.
-            Ye scope us jagah par based hota hai jahan code likha gaya hai, na ki jahan se function call hota hai.</p>
-    </section>
+    <h1>Closure</h1>
+    <p>Closure JavaScript me ek function ke andar dusre function ko access karne ki ability hai, chahe outer function
+        execute ho chuka ho. Ye inner function apne lexical scope ke variables ko yaad rakhta hai.</p>
 
-    <!-- Destructuring Section -->
-    <section>
-        <h2>Destructuring</h2>
-        <p>Ek tarika hai jo objects ya arrays ke elements ko asaani se alag variables me tod kar store karne ke liye use
-            hota hai.</p>
-    </section>
+    <h2>Lexical Scope</h2>
+    <p>Lexical scope JavaScript me ek rule hai jo define karta hai ki variables ko kaha se access kiya ja sakta hai. Ye
+        scope us jagah par based hota hai jahan code likha gaya hai, na ki jahan se function call hota hai.</p>
 
-    <!-- Default Parameters Section -->
-    <section>
-        <h2>Default Parameters</h2>
-        <!-- Content for Default Parameters can be added here -->
-    </section>
 
-    <!-- Rest Parameter Section -->
-    <section>
-        <h2>Rest Parameter</h2>
-        <p>Ek syntax hota hai jo function parameters ko ek array me collect karne ke liye use hota hai.</p>
-    </section>
 
-    <!-- Spread Operator Section -->
-    <section>
-        <h2>Spread Operator</h2>
-        <p>Syntax ek tarika hai jo objects ya arrays ke elements ko easily copy ya expand karne ka allow karta hai.</p>
-    </section>
+    <h1>Destructuring</h1>
+    <p> Ek tarika hai jo objects ya arrays ke elements ko asaani se alag variables me tod kar store karne ke liye use
+        hota hai.</p>
+    <h1>Default parameters</h1>
 
-    <!-- Enhanced Object Literals Section -->
-    <section>
-        <h2>Enhanced Object Literals</h2>
-        <!-- Content for Enhanced Object Literals can be added here -->
-    </section>
 
-    <!-- Iterators & For..of Section -->
-    <section>
-        <h2>Iterators & For..of</h2>
-        <!-- Content for Iterators & For..of can be added here -->
-    </section>
+    <h1>Rest parameter</h1>
+    <p>Ek syntax hota hai jo function parameters ko ek array me collect karne ke liye use hota hai.</p>
 
-    <!-- Generators Section -->
-    <section>
-        <h2>Generators</h2>
-        <!-- Content for Generators can be added here -->
-    </section>
+    <h1>Spread Operator</h1>
+    <p>Syntax ek tarika hai jo objects ya arrays ke elements ko easily copy ya expand karne ka allow karta hai.</p>
 
-    <!-- Modules Section -->
-    <section>
-        <h2>Modules</h2>
-        <!-- Content for Modules can be added here -->
-    </section>
+    <h1>Enhanced object literals</h1>
+    <p>Enhanced object literals JavaScript me object banane ka naya aur asaan tarika hai jo shorthand properties,
+        methods, aur dynamic property names ko support karta hai.</p>
+    <h2>1- Property Shorthand</h2>
+    <h2>2- Method Shorthand</h2>
+    <h2>3- Computed Property Names</h2>
 
-    <!-- Map Section -->
-    <section>
-        <h2>Map</h2>
-        <!-- Content for Map can be added here -->
-    </section>
+    <h1>Array methods</h1>
+    <h1>Callback</h1>
+    <h1>Map</h1>
+    <p>In JavaScript, a Map is a collection of key-value pairs where both keys and values can be of any data type.
+        Unlike regular JavaScript objects, which only allow strings or symbols as keys, Map can use objects, functions,
+        or primitives as keys.</p>
+    <h2>Why use map</h2>
+    <p>Map JavaScript ka ek built-in object hai jo key-value pairs ko store karta hai, jisme key kisi bhi type ka ho
+        sakta hai (string, number, object, function, etc.), aur value kuch bhi ho sakta hai. Yani Map zyada flexible hai
+        objects ke comparison mein isme builtin size dekhne ka bhi method h</p>
+    <p>Map ek powerful object hai jisme aap key-value pairs ko efficiently manage kar sakte hain.
+        Methods jese .set(), .get(), .has(), .delete(), .size aapko map ki operations ko efficiently perform karne mein
+        madad karte hain.
+        Aap Map ko object ke comparison mein zyada flexible aur performant paenge, especially jab aapko objects ko keys
+        bana kar use karna ho.</p>
 
-    <!-- Array Methods Section -->
-    <section>
-        <h2>Array Methods</h2>
-        <!-- Content for Array Methods can be added here -->
-    </section>
+    <h1>Higher-order function</h1>
+    <p>
+        Higher-order function wo function hota hai jo dusre function ko argument ke roop mein accept karta ho, ya apne
+        result ke roop mein ek function return karta ho.</p>
 
-    <!-- Higher-order Function Section -->
-    <section>
-        <h2>Higher-order Function</h2>
-        <!-- Content for Higher-order Function can be added here -->
-    </section>
 
-    <!-- Callback Section -->
-    <section>
-        <h2>Callback</h2>
-        <!-- Content for Callback can be added here -->
-    </section>
+    <h1>Generators</h1>
+    <p>JavaScript ke generator functions ek khaas tarah ke function hote hain jo execution ko pause aur resume karne ki
+        ability dete hain. Matlab, aap ek function ko chalakar beech me rokh bhi sakte ho, aur phir jahan se roka tha
+        wahi se dobara start kar sakte ho. Iska use tab hota hai jab hume lazmi nahi hota ke ek sath saara kaam ho,
+        balki hume ek-ek step me values ya kaam lena hota hai.</p>
 
-    <!-- Promises Section -->
-    <section>
-        <h2>Promises</h2>
-        <!-- Content for Promises can be added here -->
-    </section>
+    <h2>How to create</h2>
+    <p>Generator function ko banane ke liye function* ka use hota hai (matlab * lagana zaruri hai). Iske andar yield
+        keyword ka use hota hai jo ek value ko return karta hai aur function ko pause kar deta hai.</p>
 
-    <!-- Exponentiation Operator Section -->
-    <section>
-        <h2>Exponentiation Operator</h2>
-        <!-- Content for Exponentiation Operator can be added here -->
-    </section>
 
-    <!-- Classes Section -->
-    <section>
-        <h2>Classes</h2>
-        <!-- Content for Classes can be added here -->
-    </section>
+    <h1>Optional chaining</h1>
+    <p>Optional Chaining (?.) in JavaScript is a feature that allows you to safely access deeply nested properties of an
+        object without having to manually check if each property exists. If any part of the chain is null or undefined,
+        it short-circuits and returns undefined instead of throwing an error.</p>
 
-    <!-- Ternary Operator Section -->
-    <section>
-        <h2>Ternary Operator</h2>
-        <!-- Content for Ternary Operator can be added here -->
-    </section>
+    <h1>Exponentiation Operator</h1>
+    <p>The Exponentiation Operator (**) in JavaScript is used to raise a number to the power of another number. It is a
+        shorthand way to calculate exponents, similar to using the Math.pow() function.</p>
 
-    <!-- Optional Chaining Section -->
-    <section>
-        <h2>Optional Chaining</h2>
-        <!-- Content for Optional Chaining can be added here -->
-    </section>
 
+    <h1>Modules</h1>
+    <p>
+        Modules in JavaScript are a way to organize and encapsulate code into reusable and maintainable pieces. They
+        allow you to split your code into separate files or modules, making it easier to manage, debug, and share
+        functionality across different parts of an application.
+    </p>
+    <h1>Generators</h1>
+    <p>JavaScript ke generator functions ek khaas tarah ke function hote hain jo execution ko pause aur resume karne ki
+        ability dete hain. Matlab, aap ek function ko chalakar beech me rokh bhi sakte ho, aur phir jahan se roka tha
+        wahi se dobara start kar sakte ho. Iska use tab hota hai jab hume lazmi nahi hota ke ek sath saara kaam ho,
+        balki hume ek-ek step me values ya kaam lena hota hai.</p>
+
+    <h2>How to create</h2>
+    <p>Generator function ko banane ke liye function* ka use hota hai (matlab * lagana zaruri hai). Iske andar yield
+        keyword ka use hota hai jo ek value ko return karta hai aur function ko pause kar deta hai.</p>
+
+
+    <h1>Optional chaining</h1>
+    <p>Optional Chaining (?.) in JavaScript is a feature that allows you to safely access deeply nested properties of an
+        object without having to manually check if each property exists. If any part of the chain is null or undefined,
+        it short-circuits and returns undefined instead of throwing an error.</p>
+
+    <h1>Exponentiation Operator</h1>
+    <p>The Exponentiation Operator (**) in JavaScript is used to raise a number to the power of another number. It is a
+        shorthand way to calculate exponents, similar to using the Math.pow() function.</p>
+
+
+    <h1>Modules</h1>
+    <p>
+        Modules in JavaScript are a way to organize and encapsulate code into reusable and maintainable pieces. They
+        allow you to split your code into separate files or modules, making it easier to manage, debug, and share
+        functionality across different parts of an application.
+    </p>
+    <h1>Iterators & For..of</h1>
+    <h1>Modules</h1>
+    <h1>Promises</h1>
+    <h1>Exponentiation Operator</h1>
+    <h1>Classes</h1>
+    <h1>Optional chaining</h1>
     <script src="index.js"></script>
 </body>
 

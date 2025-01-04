@@ -391,17 +391,16 @@
 
 // SetTimeOut in Js
 
-let mybtn = document.getElementById("btn");
+// let mybtn = document.getElementById("btn");
 
-mybtn.addEventListener("click", () => {
-  //   setTimeout(() => {
-  //     alert("Stop");
-  //   }, 10000);
-
-//   setInterval(() => {
-//     console.log("Js is fun");
-//   }, 3000);
-});
+// mybtn.addEventListener("click", () => {
+//   //   setTimeout(() => {
+//   //     alert("Stop");
+//   //   }, 10000);
+//   //   setInterval(() => {
+//   //     console.log("Js is fun");
+//   //   }, 3000);
+// });
 
 // Callback in Js
 
@@ -418,24 +417,21 @@ mybtn.addEventListener("click", () => {
 // 2- Jab kaam pura hoga, tab aapko batayega (yeh callback function hai).
 
 // Example code:
-function kaamPuraHua(message) {
-    console.log("Callback function chal gaya: " + message);
-}
+// function kaamPuraHua(message) {
+//   console.log("Callback function chal gaya: " + message);
+// }
 
-function kaamKaro(callback) {
-    console.log("Kaam shuru ho gaya...");
-    setTimeout(() => {
-        console.log("Kaam pura ho gaya!");
-        callback("Yeh hai callback ka message.");
-    }, 5000); // 2 second ka delay
-}
+// function kaamKaro(nameFunc, cb) {
+//   console.log(cb);
+//   console.log("Kaam shuru ho gaya...");
+//   setTimeout(() => {
+//     console.log("Kaam pura ho gaya!");
+//     nameFunc("Yeh hai callback ka message.");
+//   }, 5000); // 2 second ka delay
+// }
 
-// Callback function pass kiya
-kaamKaro(kaamPuraHua);
-
-
-
-
+// // Callback function pass kiya
+// kaamKaro(kaamPuraHua, "abdullah");
 
 // Task: Countdown Timer with a Callback
 // Ek function banao jo countdown kare, jaise 5 se 0 tak numbers print kare.
@@ -473,3 +469,315 @@ kaamKaro(kaamPuraHua);
 
 //   // Call the countdown function
 //   countdown(5, onComplete);
+
+//Map in js
+
+// Example 1
+// const map = new Map();
+
+// // Adding key-value pairs
+// map.set("name", "Alice");
+// map.set("age", 25);
+// map.set("city", "New York");
+
+// console.log(map);
+// Accessing values using keys
+// console.log(map.get('name'));
+// console.log(map.get('age'));
+
+// Checking if a key exists
+// console.log(map.has('city')); // Output: true
+// console.log(map.has('country')); // Output: false
+
+// console.log(map);
+// Removing a key-value pair
+// map.delete("age");
+
+// Checking the size of the map
+// console.log(map.size);
+
+// let obj = {
+//   name: "alex",
+//   class: 12,
+// };
+
+// obj.foreach((el) => {
+//   console.log(el);
+// });
+
+// Iterating over Map
+// map.forEach((value, key) => {
+//   console.log(`${key}: ${value}`);
+// });
+
+// Example 2
+// const map = new Map();
+
+// const obj1 = { id: 1 };
+// const obj2 = { id: 2 };
+
+// // // Adding objects as keys
+// map.set(obj1, "Object 1");
+// map.set(obj2, "Object 2");
+
+// map.clear()
+// console.log(map)
+// // Accessing values using objects as keys
+// console.log(map.get(obj1)); // Output: Object 1
+// console.log(map.get(obj2)); // Output: Object 2
+
+// Map ke Methods
+// .set(key, value)
+
+// Description: Key-value pair ko map mein add ya update karta hai.
+// Example: map.set('name', 'Alice')
+// .get(key)
+
+// Description: Kisi key ki corresponding value ko fetch karta hai.
+// Example: map.get('name') — returns 'Alice'
+// .has(key)
+
+// Description: Check karta hai ki specified key map mein exist karti hai ya nahi.
+// Example: map.has('name') — returns true
+// .delete(key)
+
+// Description: Map se kisi key-value pair ko remove karta hai.
+// Example: map.delete('name')
+// .clear()
+
+// Description: Map ke sare key-value pairs ko remove kar deta hai.
+// Example: map.clear()
+// .size
+
+// Description: Map mein total number of key-value pairs ko return karta hai.
+// Example: map.size — returns the size of the map.
+// .forEach(callback)
+
+// Description: Map ke har key-value pair ke liye ek callback function ko execute karta hai.
+// Example:
+// javascript
+
+// map.forEach((value, key) => {
+//   console.log(key, value);
+// });
+
+// HOC in js
+// Example: 1
+// function greeting(name, callback) {
+//     console.log("Hello, " + name);  // Greeting message print karega
+//     callback(); // Ye callback function ko call karega (sayGoodbye ko)
+//   }
+
+//   function sayGoodbye() {
+//     console.log("Goodbye!"); // Goodbye message print karega
+//   }
+
+//   greeting("Alice", sayGoodbye);
+
+// Example 2:
+
+// function multiplyBy(x) {
+//     return function(y) {
+//       return x * y;
+//     };
+//   }
+
+//   const multiplyBy2 = multiplyBy(2);
+//   console.log(multiplyBy2(5));
+
+// Generator function
+// ek-ek number return karne hain bina ek sath saari memory consume kiye
+
+// Example 1
+// function* meraGenerator() {
+//   yield "Pehli Value";
+//   yield "Dusri Value";
+//   yield "Tisri Value";
+// }
+
+// const gen = meraGenerator(); // Generator ko call karne se ek iterator milta hai
+
+// console.log(gen.next()); // { value: "Pehli Value", done: false }
+// console.log(gen.next()); // { value: "Dusri Value", done: false }
+// console.log(gen.next()); // { value: "Tisri Value", done: false }
+// console.log(gen.next()); // { value: undefined, done: true }
+
+// Example 2
+// For Infinity count
+// function* numbersGenerator() {
+//     let num = 1;
+//     while (true) {
+//         yield num++;
+//     }
+// }
+
+// const nums = numbersGenerator();
+
+// console.log(nums.next().value); // 1
+// console.log(nums.next().value); // 2
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+// console.log(nums.next().value); // 3
+
+// Example 3
+
+// function* countingGenerator() {
+//     console.log("Generator shuru ho raha hai...");
+//     yield 1; // Pehli value
+//     console.log("Pehle yield ke baad...");
+//     yield 2; // Dusri value
+//     console.log("Dusre yield ke baad...");
+//     yield 3; // Tisri value
+//     console.log("Generator khatam ho gaya.");
+// }
+
+// const counter = countingGenerator(); // Generator function ko call karte hi ek iterator milta hai
+
+// console.log(counter.next()); // { value: 1, done: false }
+// console.log(counter.next()); // { value: 2, done: false }
+// console.log(counter.next()); // { value: 3, done: false }
+// console.log(counter.next()); // { value: undefined, done: true }
+
+// Example 1
+// const user = { name: "Ali", address: { city: "Karachi" } };
+
+// console.log(user.address.city); // "Karachi"
+// console.log(user.profile.city); // Error: Cannot read properties of undefined
+
+// console.log(user?.address?.city); // "Karachi"
+// console.log(
+//   user?.address?.city == undefined ? "Unavailable" : user?.address?.city
+// ); // undefined
+
+// Example 2
+// const user = {
+//     greet: function () {
+//         return "Hello!";
+//     }
+// };
+
+// // // Error if `greet` is not defined
+// // console.log(user.greet()); // "Hello!"
+// // console.log(user.sayBye()); // Error: user.sayBye is not a function
+
+// console.log(user?.greet?.()); // "Hello!"
+// console.log(user?.sayBye?.()); // undefined
+
+// Example 3
+// const user = [{ name: "Ali" }, null, { name: "Sara" }];
+
+// console.log(users[0]?.name); // "Ali"
+// console.log(users[1]?.name); // undefined
+// console.log(users[5]?.name); // undefined
+
+// // Benefits
+// const user = { name: "Ali", address: { city: "Karachi" } };
+
+// // // Without optional chaining
+// if (user && user.address && user.address.city) {
+//     console.log(user.address.city);
+// }
+
+// // // With optional chaining
+// console.log(user?.address?.city);
+
+// Eponential operator
+// Example
+// console.log(8 ** -1); // 8
+// console.log(Math.pow(8, 4)); // 8
+
+// Module in js
+
+
+// 1. Named Exports and Imports
+// Export multiple values
+// file 1
+// export const add = (a, b) => a + b;
+// export const subtract = (a, b) => a - b;
+
+// // file 2
+// import { add, subtract } from './math.js';
+
+// console.log(add(5, 3));       // 8
+// console.log(subtract(5, 3));  // 2
+// file 1
+
+//2. Default Export and Import
+// Export a single default value
+// export default function greet(name) {
+//     return `Hello, ${name}!`;
+// }
+// // file 2
+// // Import the default export
+// import greet from './greet.js';
+
+// console.log(greet('Ali')); // Hello, Ali!
+
+//  Combination of Default and Named Exports
+
+// Export (in utils.js):
+
+// export const multiply = (a, b) => a * b;
+// export const divide = (a, b) => a / b;
+// export default function square(a) {
+//     return a * a;
+// }
+
+// Import (in app.js):
+
+// import square, { multiply, divide } from './utils.js';
+
+// console.log(square(4));       // 16
+// console.log(multiply(4, 2));  // 8
+// console.log(divide(4, 2));    // 2
+
+// Benefits of Using Modules:
+// Maintainability:
+
+// Code is easier to read and maintain when split into logical units.
+// Reusability:
+
+// Modules can be reused across different projects or files.
+// Avoid Global Scope Pollution:
+
+// Modules keep code private unless explicitly exported.
+// Improved Debugging:
+
+// Errors in modularized code are easier to isolate and fix.
+// Lazy Loading:
+
+// Modules support on-demand loading for better performance.
+
+//Advanced Module Features:
+
+// Renaming Imports/Exports:
+
+// export { add as addition }; // Renaming while exporting
+// import { addition } from './math.js'; // Renaming while importing
+// Import All:
+
+// import * as MathOperations from './math.js';
+
+// console.log(MathOperations.add(5, 3)); // 8
+// console.log(MathOperations.subtract(5, 3)); // 2
+// Dynamic Imports:
+
+// Modules can be loaded dynamically at runtime using import().
+
+// import('./math.js').then(module => {
+//     console.log(module.add(5, 3)); // 8
+// });
+
+// Using Modules in Browsers:
+// Add the type="module" attribute to your <script> tag:
+
+// <script type="module" src="app.js"></script>
