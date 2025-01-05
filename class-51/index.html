@@ -120,12 +120,61 @@
         functionality across different parts of an application.
     </p>
     <h1>Iterators & For..of</h1>
-    <h1>Modules</h1>
+    <p>
+        The for...of loop in JavaScript is used to iterate over iterable objects like arrays, strings, Maps, Sets. It
+        provides a clean syntax to loop through the values of an iterable.</p>
     <h1>Promises</h1>
-    <h1>Exponentiation Operator</h1>
+    <p>JavaScript mein Promise ek aise object ko kaha jata hai jo kisi asynchronous operation ka result represent karta
+        hai. Matlab, jab aap koi kaam karte hain jo thoda time leta hai, toh uska result aapko baad mein milega. Promise
+        se aap yeh result "promise" karte hain.</p>
+    <h2>Promise ka basic structure:</h2>
+    <p>Ek promise 3 states mein ho sakta hai:
+        Pending: Jab promise ka kaam abhi ho raha ho.
+        Resolved/ Fulfilled: Jab promise ka kaam successfully ho jaye.
+        Rejected: Jab promise ka kaam fail ho jaye.</p>
+
+    <h3>Promise ka kaam kaise karta hai?</h3>
+    <p>Jab aap new Promise create karte ho, toh aap do functions pass karte ho:
+
+        resolve: Agar kaam sahi tarah se ho jaye, toh aap resolve ko call karte hain.
+        reject: Agar kuch galat ho, toh aap reject ko call karte hain.
+        Phir, aap .then() aur .catch() methods se result handle karte hain:
+
+        .then(): Jab promise resolve ho jaye, toh .then() ka callback function execute hota hai.
+        .catch(): Jab promise reject ho jaye, toh .catch() ka callback function execute hota hai.
+    </p>
+    <h4> Why Promises</h4>
+    <p>Promise ko use karne ka main reason yeh hai ke asynchronous operations ko handle karne ka ek structured aur
+        readable tareeqa milta hai. Aaj kal JavaScript applications me jo bhi operations time leta hai (jaise data
+        fetching, file reading, user authentication, etc.), unhe asynchronously process kiya jata hai. Jab hum
+        asynchronous operations ko handle karte hain, tab callbacks ka use karna complex ho sakta hai, aur code ka flow
+        samajhna mushkil ho jata hai.</p>
+    <p>Cleaner Code,Error Handling,Avoid Callback Hell</p>
+    <h2>Promises all</h2>
+    <p>method multiple promises ko ek sath handle karta hai. Yeh method ek array of promises accept karta hai aur jab
+        saare promises resolve ho jate hain, toh ek array of results return karta hai. Agar koi bhi promise reject hota
+        hai, toh Promise.all() usse reject kar deta hai.</p>
+    <h2>Promises race</h2>
+    <p>method multiple promises me se pehla resolve ya reject hone wala promise return karta hai. Yeh method ek array of
+        promises ko accept karta hai, aur jo promise pehla resolve ya reject hota hai, uska result milta hai.</p>
+    <h2>Promises allSettled</h2>
+    <p>method ek array of promises ko accept karta hai aur us array ke saare promises complete hone par ek array return
+        karta hai, chahe promises resolve ho ya reject. Yeh useful hota hai jab aapko har promise ke result ko dekhna
+        ho, regardless of whether it was resolved or rejected.</p>
+
+    <h2>Promises Any</h2>
+    <p>method ek array of promises ko accept karta hai aur sabse pehle jo promise resolve hota hai, uska result return
+        karta hai. Agar saare promises reject ho jate hain, toh yeh ek aggregate error throw karega.</p>
+    <h3>Summary of Promise Methods:
+        then(): Success handling for a resolved promise.
+        catch(): Error handling for a rejected promise.
+        finally(): Runs after then() or catch(), irrespective of the outcome.
+        all(): Waits for all promises to resolve.
+        race(): Resolves as soon as one promise resolves or rejects.
+        allSettled(): Waits for all promises to settle (either resolve or reject).
+        any(): Resolves as soon as any one promise resolves.</h3>
     <h1>Classes</h1>
-    <h1>Optional chaining</h1>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 
 </html>

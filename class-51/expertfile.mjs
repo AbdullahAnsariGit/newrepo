@@ -1,4 +1,4 @@
-import greet, { add as sum, subtract } from "./utils.js";
+import greet, { add as sum, subtract } from "./utils.mjs";
 // import greet from "./utils.js";
 
 console.log(sum(2, 3));
