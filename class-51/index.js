@@ -977,3 +977,54 @@
 //   .catch(error => {
 //     console.log(error);
 //   });
+
+
+
+// Fetch Syntax
+
+// fetch('URL')
+//   .then(response => {
+//     // Response kaam karega
+//   })
+//   .catch(error => {
+//     // Error handle karega
+//   });
+
+
+// Example 1
+
+// Get method:
+// fetch('https://api.example.com/weather')
+//   .then(response => {
+//     if (!response.ok) { // Agar response theek nahi hai
+//       throw new Error('Data nahi mila');
+//     }
+//     return response.json(); // JSON data ko parse karo
+//   })
+//   .then(data => {
+//     console.log('Weather Data:', data); // API ka data yahan milega
+//   })
+//   .catch(error => {
+//     console.error('Error:', error); // Agar kuch galti ho gayi
+//   });
+
+
+// Post method:
+// fetch('https://api.example.com/submit', {
+//     method: 'POST', // HTTP method
+//     headers: {
+//       'Content-Type': 'application/json' // Bata raha hai ki hum JSON data bhej rahe hain
+//     },
+//     body: JSON.stringify({ // Data bhejne ke liye
+//       name: 'Ali',
+//       age: 23
+//     })
+//   })
+//     .then(response => response.json())
+//     .then(data => {
+//       console.log('Server Response:', data);
+//     })
+//     .catch(error => {
+//       console.error('Error:', error);
+//     });
+  

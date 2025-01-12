@@ -114,6 +114,7 @@
 
 
     <h1>Modules</h1>
+    <h1>Class</h1>
     <p>
         Modules in JavaScript are a way to organize and encapsulate code into reusable and maintainable pieces. They
         allow you to split your code into separate files or modules, making it easier to manage, debug, and share
@@ -173,7 +174,55 @@
         race(): Resolves as soon as one promise resolves or rejects.
         allSettled(): Waits for all promises to settle (either resolve or reject).
         any(): Resolves as soon as any one promise resolves.</h3>
-    <h1>Classes</h1>
+
+
+    <h1>Fetch</h1>
+    <p>JavaScript ka fetch() ek modern tariqa hai jo hum web se data lene ya server par bhejne ke liye use karte hain.
+        Yeh purane XMLHttpRequest ka badal hai aur Promises ke sath kaam karta hai, jo code ko simple aur samajhne me
+        easy banata hai.</p>
+
+    <h2>Fetch ka kam</h2>
+    <p>fetch() ek HTTP request karta hai (jaise API se data lena) aur ek Promise return karta hai. Jab data milta hai ya
+        koi error hoti hai, toh hum then aur catch ka use karke response handle karte hain.
+    </p>
+    <h1>GET (Retrieve data)</h1>
+    <p>Use Case: Data ko server se retrieve (fetch) karna.
+        Description: Jab aapko server se koi data chahiye hota hai (jaise weather information, product list, user
+        profile, etc.), tab aap GET request use karte hain.
+        Example: Fetch weather data, get user details, etc.
+        Body: GET request me body nahi hoti. Hum query parameters ke through data bhejte hain.</p>
+
+    <h1>POST (Create data)</h1>
+    <p>Use Case: Server pe new data create karna.
+        Description: Jab aapko server pe naya data bhejna ho (jaise user signup karna, new blog post banana, form submit
+        karna, etc.), tab aap POST request use karte hain.
+        Body: POST request me aap data ko body me bhejte hain.</p>
+
+
+    <h1>PUT (Update data)
+    </h1>
+
+    <p>Use Case: Server pe existing data ko completely update karna.
+        Description: Jab aapko kisi resource (data) ko completely update karna ho, tab aap PUT request use karte hain.
+        Yeh purane data ko replace karta hai.
+        Example: User profile update karna, kisi product ki details ko update karna, etc.
+        Body: PUT request me updated data ko body me bheja jata hai.</p>
+
+
+    <h1>DELETE (Delete data)</h1>
+    <p>Use Case: Server se data delete karna.
+        Description: Jab aapko server se koi data delete karna ho (jaise user ko delete karna, post ko delete karna,
+        etc.), tab aap DELETE request use karte hain.
+        Example: User account ko delete karna, kisi post ko delete karna, etc.
+        Body: DELETE request me usually body nahi hoti, bas URL ke through resource specify kiya jata hai.</p>
+
+    <h1>PATCH (Partial update)</h1>
+    <p>Use Case: Server pe data ka partial update karna.
+        Description: Jab aapko kisi resource ko partial update karna ho (kuch specific fields hi update karni ho), tab
+        aap PATCH request use karte hain. Yeh PUT se thoda different hota hai, kyunki PUT puri resource ko replace karta
+        hai, jabki PATCH sirf specified fields ko update karta hai.
+        Example: User ka sirf email update karna, kisi product ka price update karna, etc.
+        Body: PATCH request me sirf woh fields bheje jaate hain jo update karni hoti hain.</p>
     <script type="module" src="index.js"></script>
 </body>
 
