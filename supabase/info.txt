@@ -1,0 +1,65 @@
+#Topics
+1- Intro & Authentication
+2- Signup 
+3- Login
+4- Auth Session
+5- Auth Events
+
+What is Supabase?
+
+Supabase ek backend-as-a-service (BaaS) platform hai jo developers ka kaam asaan banata hai. Yeh backend ke complicated kaam, jaise authentication, database management, aur APIs ka setup, aapke liye automatically handle karta hai. Matlab aapko zyada code likhne ki zarurat nahi, sirf apni app par focus karna hai.
+
+Agar aapko Firebase ka idea hai, toh samajh lo Supabase uska open-source alternative hai, lekin zyada flexible aur customizable hai.
+
+Supabase Ke Main Features
+
+Authentication (Login/Signup System):
+
+Users ke liye alag-alag login options provide karta hai, jaise:
+Email aur password.
+Social logins (Google, Facebook, GitHub, etc.).
+Custom OAuth (Agar aap apne third-party provider use karna chahein).
+Login sessions handle karne ke liye JWT (JSON Web Tokens) ka use karta hai.
+
+Database:
+
+Supabase ka database PostgreSQL par based hai (yeh ek powerful aur reliable relational database hai).
+Jab aap apna data table banate hain, Supabase uska API bhi automatically ready kar deta hai.
+Database real-time updates ko bhi support karta hai.
+
+APIs:
+
+Aapke database ke liye auto-generated REST APIs milti hain.
+CRUD operations (Create, Read, Update, Delete) easily perform kar sakte hain.
+
+Storage:
+
+Files jaise images, videos, aur documents ko securely store karne ke liye built-in storage provide karta hai.
+
+Supabase Kyu Use Karein?
+Open-source: Agar aapko apna backend khud host karna ho, toh yeh possible hai.
+Scalable: Large-scale apps ke liye bhi suitable hai.
+Easy Integration: Supabase ko kisi bhi frontend framework ke saath easily integrate kar sakte hain.
+Developer-friendly: Documentation aur setup itna asaan hai ki beginners bhi ise quickly use kar sakte hain.
+
+
+Authentication Flow Ka Example:
+
+User email aur password dalta hai.
+Supabase details verify karta hai aur user ko login kar deta hai.
+Session automatically save hota hai (localStorage ya cookies me).
+Jab tak user manually logout na kare, wo logged-in hi rehta hai.
+
+
+Session Ka Kaam Kya Hai?
+User Authentication:
+Jab user login karta hai, ek session ban jata hai. Ye session server ko batata hai ki yeh user authenticated hai.
+
+State Maintain Karna:
+Session ki wajah se app ya website user ke data ko yaad rakhti hai. For example:
+
+Agar aap online shopping kar rahe ho, session ki wajah se cart me products add rehte hain.
+Social media apps me session ki wajah se aap logged-in rehte ho.
+Security:
+Session user ko unauthorized access se bachata hai, kyunki har session ek unique token (e.g., JWT) ke saath hota hai.
+
