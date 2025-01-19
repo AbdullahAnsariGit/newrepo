@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Authentication</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #auth-container,
+        #signup-container,
+        #dashboard-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #dashboard-container {
+            display: none;
+        }
+
+        #user-info {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .user-item {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-item .info {
+            flex-grow: 1;
+        }
+
+        .user-item button {
+            background-color: #f44336;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .user-item button:hover {
+            background-color: #e53935;
+        }
+
+        .user-item .info p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .user-item .info strong {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .add-user {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .add-user input {
+            width: 48%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="auth-container">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button id="login-btn">Login</button>
+        <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+    </div>
+
+    <div id="signup-container" style="display: none;">
+        <h2>Sign Up</h2>
+        <input type="email" id="signup-email" placeholder="Email" required />
+        <input type="password" id="signup-password" placeholder="Password" required />
+        <button id="signup-btn">Sign Up</button>
+        <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+    </div>
+
+    <div id="dashboard-container">
+        <h2>Welcome to Dashboard</h2>
+        <p id="user-info"></p>
+        <button id="logout-btn">Logout</button>
+
+        <div class="add-user">
+            <input type="text" id="new-user-name" placeholder="Enter Name" />
+            <button id="add-user-btn">Add User</button>
+        </div>
+
+        <div id="user-list-container">
+            <h3>User List:</h3>
+            <!-- Users will be displayed here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script>
+        const SUPABASE_URL = 'https://injuppjzfjvktcbeulwo.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImluanVwcGp6Zmp2a3RjYmV1bHdvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY4MDMwNTUsImV4cCI6MjA1MjM3OTA1NX0.ibGoLSm8Ps9qn8YdB9PF-vZkdEl1v8Gwo7oARlkWm4A';
+        const supa_base = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // DOM Elements
+        const authContainer = document.getElementById('auth-container');
+        const signupContainer = document.getElementById('signup-container');
+        const dashboardContainer = document.getElementById('dashboard-container');
+        const userInfo = document.getElementById('user-info');
+        const userListContainer = document.getElementById('user-list-container');
+        const loginBtn = document.getElementById('login-btn');
+        const signupBtn = document.getElementById('signup-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const showSignup = document.getElementById('show-signup');
+        const showLogin = document.getElementById('show-login');
+        const addUserBtn = document.getElementById('add-user-btn');
+        const newUserName = document.getElementById('new-user-name');
+
+        // Switch to signup form
+        showSignup.addEventListener('click', () => {
+            authContainer.style.display = 'none';
+            signupContainer.style.display = 'block';
+        });
+
+        // Switch to login form
+        showLogin.addEventListener('click', () => {
+            signupContainer.style.display = 'none';
+            authContainer.style.display = 'block';
+        });
+
+        // Handle Login
+        loginBtn.addEventListener('click', async () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const { data, error } = await supa_base.auth.signInWithPassword({ email, password });
+            if (error) {
+                alert(error.message);
+            } else {
+                localStorage.setItem('session', JSON.stringify(data));
+                showDashboard();
+            }
+        });
+
+        // Handle Sign Up
+        signupBtn.addEventListener('click', async () => {
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+
+            const { data, error } = await supa_base.auth.signUp({ email, password });
+            if (error) {
+                alert(error.message);
+            } else {
+                alert('Sign up successful! Please check your email to confirm.');
+                signupContainer.style.display = 'none';
+                authContainer.style.display = 'block';
+            }
+        });
+
+        // Handle Logout
+        logoutBtn.addEventListener('click', async () => {
+            await supa_base.auth.signOut();
+            localStorage.removeItem('session');
+            showLoginPage();
+        });
+
+        // Add new user
+        addUserBtn.addEventListener('click', async () => {
+            const userName = newUserName.value.trim();
+            if (userName) {
+                const { data, error } = await supa_base.from('profiles').insert([{ name: userName }]);
+                if (error) {
+                    alert('Error adding user: ' + error.message);
+                } else {
+                    newUserName.value = ''; // Clear input
+                    loadUsers(); // Reload user list
+                }
+            } else {
+                alert('Please enter a name!');
+            }
+        });
+
+        // Fetch and display users from profiles table
+        async function loadUsers() {
+            const { data, error } = await supa_base.from('profiles').select('*');
+            if (error) {
+                alert('Error fetching users: ' + error.message);
+                return;
+            }
+
+            // Clear previous user list
+            userListContainer.innerHTML = '<h3>User List:</h3>';
+
+            // Loop through the data and display users
+            data.forEach(user => {
+                const userItem = document.createElement('div');
+                userItem.classList.add('user-item');
+                userItem.innerHTML = `
+                    <div class="info">
+                        <strong>${user.name}</strong>
+                        <p>ID: ${user.id}</p>
+                    </div>
+                    <button onclick="deleteUser('${user.id}')">Delete</button>
+                `;
+                userListContainer.appendChild(userItem);
+            });
+        }
+
+        // Delete user
+        async function deleteUser(userId) {
+            const { error } = await supa_base.from('profiles').delete().match({ id: userId });
+            if (error) {
+                alert('Error deleting user: ' + error.message);
+            } else {
+                loadUsers(); // Reload user list
+            }
+        }
+
+        // Show Dashboard if user is logged in
+        function showDashboard() {
+            const session = JSON.parse(localStorage.getItem('session'));
+            if (session) {
+                authContainer.style.display = 'none';
+                signupContainer.style.display = 'none';
+                dashboardContainer.style.display = 'block';
+                userInfo.innerText = `Hello, ${session.user.email}`;
+                loadUsers(); // Load users on dashboard
+            }
+        }
+
+        // Show login page if no session
+        function showLoginPage() {
+            authContainer.style.display = 'block';
+            signupContainer.style.display = 'none';
+            dashboardContainer.style.display = 'none';
+        }
+
+        // Initialize page based on session
+        if (localStorage.getItem('session')) {
+            showDashboard();
+        } else {
+            showLoginPage();
+        }
+    </script>
+</body>
+
+</html>
