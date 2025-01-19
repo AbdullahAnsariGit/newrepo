@@ -697,7 +697,6 @@
 
 // Module in js
 
-
 // 1. Named Exports and Imports
 // Export multiple values
 // file 1
@@ -788,9 +787,7 @@
 // console.log(subtract(7, 3));
 // console.log(greet("Abdullah"));
 
-
-
-// For of 
+// For of
 
 // 1. Iterating Over an Array
 
@@ -800,7 +797,6 @@
 //   console.log(fruit);
 // }
 
-
 // 2. Iterating Over a String
 
 // const text = "hello";
@@ -808,7 +804,6 @@
 // for (const char of text) {
 //   console.log(char);
 // }
-
 
 // For in loop
 //for...in: Iterates over enumerable / property key properties of an object (keys).
@@ -818,43 +813,40 @@
 //     console.log(index); // outputs the indices: 0, 1, 2
 //   }
 
-
 // const person = {
 //     name: "John",
 //     age: 30
 //   };
-  
+
 //   for (const key in person) {
 //     console.log(key); // Output: "name", "age"
 //   }
-
 
 // Promises in js
 
 // Example 01
 // const promise = new Promise((resolve, reject) => {
 //     let success = true; // Yeh aap ke kaam ki status ko represent karta hai
-    
+
 //     if (success) {
 //       resolve("Kaam successful hua!");  // Agar kaam successful ho jaye toh "resolve" hota hai
 //     } else {
 //       reject("Kaam mein kuch problem aayi!"); // Agar kaam fail ho jaye toh "reject" hota hai
 //     }
 //   });
-  
+
 //   promise.then((message) => {
 //     console.log(message);  // Agar promise resolve ho jaye toh yeh run karega
 //   }).catch((error) => {
 //     console.log(error);  // Agar promise reject ho jaye toh yeh run karega
 //   });
-  
 
 // Example 02
 //Asynchronous Operation ka Example:
 
 // const fetchData = new Promise((resolve, reject) => {
 //     let dataFetched = true; // Maan lo data mil gaya
-    
+
 //     setTimeout(() => {
 //       if (dataFetched) {
 //         resolve("Data mil gaya!"); // Agar data mil gaya
@@ -863,7 +855,7 @@
 //       }
 //     }, 2000); // 2 second ka delay hai
 //   });
-  
+
 //   fetchData
 //     .then((message) => {
 //       console.log(message);  // "Data mil gaya!" print hoga
@@ -871,7 +863,6 @@
 //     .catch((error) => {
 //       console.log(error);  // Agar data nahi mila toh "Data nahi mila!" print hoga
 //     });
-  
 
 //Example 03
 // Promises Chaining:
@@ -880,11 +871,11 @@
 // const promise1 = new Promise((resolve) => {
 //     resolve("First kaam complete!");
 //   });
-  
+
 //   const promise2 = new Promise((resolve) => {
 //     resolve("Second kaam complete!");
 //   });
-  
+
 //   promise1
 //     .then((result1) => {
 //       console.log(result1);  // "First kaam complete!"
@@ -897,50 +888,72 @@
 //       console.log(error);  // Agar koi error aaye toh yeh run karega
 //     });
 
-
 // Example 4
 //Async/Await - Promises ko simplify karna:
 // async function fetchData() {
-//     let dataFetched = true;
-  
-//     const promise = new Promise((resolve, reject) => {
-//       setTimeout(() => {
-//         if (dataFetched) {
-//           resolve("Data mil gaya!");
-//         } else {
-//           reject("Data nahi mila!");
-//         }
-//       }, 2000);
-//     });
-  
-//     try {
-//       const result = await promise;  // Await means yeh wait karega jab tak promise resolve ho na jaye
-//       console.log(result);  // "Data mil gaya!"
-//     } catch (error) {
-//       console.log(error);  // Agar koi error aaye toh yeh run karega
-//     }
+//   let dataFetched = true;
+
+//   const promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (dataFetched) {
+//         resolve("Data mil gaya!");
+//       } else {
+//         reject("Data nahi mila!");
+//       }
+//     }, 2000);
+//   });
+
+//   try {
+//     const result = await promise; // Await means yeh wait karega jab tak promise resolve ho na jaye
+//     console.log(result); // "Data mil gaya!"
+//   } catch (error) {
+//     console.log(error); // Agar koi error aaye toh yeh run karega
 //   }
-  
-//   fetchData();
-  
+// }
+
+// const getData = async () => {
+//   const myPromise = new Promise((pass, fail) => {
+//     let success = true;
+//     if (success) {
+//       pass("Pass hogya");
+//     } else {
+//       fail("fail hogya");
+//     }
+//   });
+//   try {
+//     let response = await myPromise;
+//     console.log(response, "res");
+//   } catch (e) {
+//     console.log(e, "error:");
+//   }
+// };
+
+// getData()
+
+// fetchData();
 
 // all() Method
 
-// let promise1 = new Promise((resolve) => setTimeout(resolve, 1000, 'Data from API 1'));
-// let promise2 = new Promise((resolve) => setTimeout(resolve, 2000, 'Data from API 2'));
-// let promise3 = new Promise((resolve) => setTimeout(resolve, 1500, 'Data from API 3'));
+// let promise1 = new Promise((resolve) =>
+//   setTimeout(resolve, 1000, "Data from API 1")
+// );
+// let promise2 = new Promise((resolve) =>
+//   setTimeout(resolve, 2000, "Data from API 2")
+// );
+// let promise3 = new Promise((resolve, reject) =>
+//   setTimeout(reject, 1500, "Data from API 3")
+// );
 
 // Promise.all([promise1, promise2, promise3])
-//   .then(results => {
-//     console.log(results);  // ['Data from API 1', 'Data from API 2', 'Data from API 3']
+//   .then((results) => {
+//     console.log(results); // ['Data from API 1', 'Data from API 2', 'Data from API 3']
 //   })
-//   .catch(error => {
-//     console.error('Error:', error);  // If any promise is rejected
+//   .catch((error) => {
+//     console.error("Error:", error); // If any promise is rejected
 //   });
 
-
 // race() method
-// let promise1 = new Promise((resolve) => setTimeout(resolve, 1000, 'Fast data'));
+// let promise1 = new Promise((resolve, reject) => setTimeout(resolve, 1000, 'Fast data'));
 // let promise2 = new Promise((resolve) => setTimeout(resolve, 2000, 'Slow data'));
 
 // Promise.race([promise1, promise2])
@@ -953,17 +966,21 @@
 
 // allSettled method
 
-// let promise1 = new Promise((resolve, reject) => setTimeout(resolve, 1000, 'Success'));
-// let promise2 = new Promise((resolve, reject) => setTimeout(reject, 2000, 'Failure'));
+// let promise1 = new Promise((resolve, reject) =>
+//   setTimeout(resolve, 1000, "Success")
+// );
+// let promise2 = new Promise((resolve, reject) =>
+//   setTimeout(reject, 2000, "Failure")
+// );
 
-// Promise.allSettled([promise1, promise2])
-//   .then(results => {
-//     results.forEach(result => {
-//       console.log(result.status);  // 'fulfilled' or 'rejected'
-//       console.log(result.value || result.reason);  // The result or error
-//     });
+// Promise.allSettled([promise1, promise2]).then((results) => {
+//   //   console.log(results);
+//   results.forEach((result) => {
+//     console.log(result);
+//     console.log(result.status); // 'fulfilled' or 'rejected'
+//     console.log(result.value || result.reason); // The result or error
 //   });
-
+// });
 
 // any()
 
@@ -978,8 +995,6 @@
 //     console.log(error);
 //   });
 
-
-
 // Fetch Syntax
 
 // fetch('URL')
@@ -989,7 +1004,6 @@
 //   .catch(error => {
 //     // Error handle karega
 //   });
-
 
 // Example 1
 
@@ -1007,7 +1021,6 @@
 //   .catch(error => {
 //     console.error('Error:', error); // Agar kuch galti ho gayi
 //   });
-
 
 // Post method:
 // fetch('https://api.example.com/submit', {
@@ -1027,4 +1040,3 @@
 //     .catch(error => {
 //       console.error('Error:', error);
 //     });
-  
