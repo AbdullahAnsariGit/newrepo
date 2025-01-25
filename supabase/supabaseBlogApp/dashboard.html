@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General Styles */
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar button:hover {
+            background-color: #003f87;
+        }
+
+        /* Dashboard Container */
+        #dashboard-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Create Blog Button */
+        #create-blog-btn {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        #create-blog-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Blogs Section */
+        #blogs {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 3fr 3fr 3fr;
+            column-gap: 17px;
+        }
+
+        .blog-item {
+            background: #f4f4f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-item h3 {
+            font-size: 20px;
+            margin: 0 0 10px;
+            color: #007bff;
+        }
+
+        .blog-item p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .blog-item {
+            max-width: 300px;
+        }
+
+        .blog-image-wrapper {
+            margin-bottom: 12px;
+        }
+
+        img.blog-image {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">BlogApp</div>
+        <button id="logout-btn">Logout</button>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div id="dashboard-container">
+        <h2>Welcome to Dashboard</h2>
+        <button id="create-blog-btn">Create New Blog</button>
+
+        <!-- Blogs Section -->
+        <div id="blogs">
+            <!-- Placeholder blogs -->
+
+        </div>
+    </div>
+
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>

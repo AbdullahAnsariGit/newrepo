@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Blog</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        /* General Styles */
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Form Container */
+        #create-blog-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        textarea,
+        input[type="file"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Create Blog Form -->
+    <div id="create-blog-container">
+        <h2>Create a New Blog</h2>
+        <form id="create-blog-form">
+            <!-- Image Upload -->
+            <label for="blog-image">Upload Image</label>
+            <input type="file" id="blog-image" accept="image/*" required>
+
+            <!-- Blog Title -->
+            <label for="blog-title">Blog Title</label>
+            <input type="text" id="blog-title" placeholder="Enter blog title" required>
+
+            <!-- Blog Description -->
+            <label for="blog-description">Blog Description</label>
+            <textarea id="blog-description" placeholder="Enter blog description" required></textarea>
+
+            <!-- Submit Button -->
+            <button id="create-blog-btn-submit" type="submit">Create Blog</button>
+        </form>
+    </div>
+
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>
