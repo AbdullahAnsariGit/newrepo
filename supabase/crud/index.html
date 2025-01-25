@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supa_base CRUD Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #task-form {
+      max-width: 400px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #task-form input,
+    #task-form textarea,
+    #task-form button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    #task-form button {
+      background-color: #4caf50;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #task-form button:hover {
+      background-color: #45a049;
+    }
+
+    #tasks-list {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .task {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .task:last-child {
+      border-bottom: none;
+    }
+
+    .task strong {
+      font-size: 18px;
+    }
+
+    .task p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .task button {
+      padding: 5px 10px;
+      margin-right: 5px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    .task button:first-child {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .task button:first-child:hover {
+      background-color: #0056b3;
+    }
+
+    .task button:last-child {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .task button:last-child:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Supabase CRUD Example</h1>
+
+  <!-- Create/Update Task Form -->
+  <form id="task-form">
+    <input type="hidden" id="task-id" /> <!-- Hidden input to store task ID -->
+    <input type="text" id="task-title" placeholder="Task Title" required />
+    <textarea id="task-description" placeholder="Task Description"></textarea>
+    <button type="submit" id="task-button">Add Task</button>
+    <button onclick="abc('aaa')">Add Task</button>
+
+  </form>
+
+  <div id="tasks-list"></div>
+
+  <script type="module">
+    // Supa_base Config
+    const supa_base_url = 'https://kbphixxhqalmzmrcqbvt.supabase.co';
+    const supa_base_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImticGhpeHhocWFsbXptcmNxYnZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzcxNDg5NTEsImV4cCI6MjA1MjcyNDk1MX0.KY-kDW1EJEGukt6xiadnnd9tCywb5LhsCKl7kWQPqHE'; // Replace with your Supa_base anon key
+    const supa_base = supabase.createClient(supa_base_url, supa_base_key);
+
+    // DOM Elements
+    const taskForm = document.getElementById('task-form');
+    const taskIdInput = document.getElementById('task-id');
+    const taskTitleInput = document.getElementById('task-title');
+    const taskDescriptionInput = document.getElementById('task-description');
+    const taskButton = document.getElementById('task-button');
+    const tasksList = document.getElementById('tasks-list');
+
+    // Fetch Tasks (READ)
+    async function fetchTasks() {
+      const { data: tasks, error } = await supa_base.from('todo').select('*');
+      if (error) {
+        console.error('Error fetching tasks:', error);
+        return;
+      }
+
+      // Render tasks
+      tasksList.innerHTML = '';
+      tasks.forEach(task => {
+        const taskDiv = document.createElement('div');
+        taskDiv.classList.add('task');
+        taskDiv.innerHTML = `
+          <p><strong>${task.title}</strong></p>
+          <p>${task.description || 'No Description'}</p>
+          <button onclick="editTask(${task.id}, '${task.title}', '${task.description || ''}')">Edit</button>
+          <button onclick="deleteTask(${task.id})">Delete</button>
+        `;
+        tasksList.appendChild(taskDiv);
+      });
+    }
+
+    // Create or Update Task
+    taskForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const id = taskIdInput.value;
+      const title = taskTitleInput.value;
+      const description = taskDescriptionInput.value;
+
+      if (id) {
+        // Update Task
+        const { data, error } = await supa_base
+          .from('todo')
+          .update({ title, description })
+          .eq('id', id);
+
+        if (error) {
+          console.error('Error updating task:', error);
+          return;
+        }
+
+        console.log('Task updated:', data);
+      } else {
+        // Create Task
+        const { data, error } = await supa_base.from('todo').insert([{ title, description }]);
+
+        if (error) {
+          console.error('Error creating task:', error);
+          return;
+        }
+
+        console.log('Task created:', data);
+      }
+
+      // Reset form
+      taskForm.reset();
+      taskIdInput.value = '';
+      taskButton.textContent = 'Add Task';
+
+      // Refresh the list
+      fetchTasks();
+    });
+
+    // Edit Task
+    window.editTask = (id, title, description) => {
+      taskIdInput.value = id;
+      taskTitleInput.value = title;
+      taskDescriptionInput.value = description;
+
+      taskButton.textContent = 'Update Task';
+    };
+
+    // Delete Task
+    window.deleteTask = async (id) => {
+      const confirmDelete = confirm('Are you sure you want to delete this task?');
+      if (!confirmDelete) return;
+
+      const { data, error } = await supa_base.from('todo').delete().eq('id', id);
+      if (error) {
+        console.error('Error deleting task:', error);
+        return;
+      }
+
+      console.log('Task deleted:', data);
+      fetchTasks();
+    };
+
+    // Initial Fetch
+    fetchTasks();
+  </script>
+</body>
+</html>
