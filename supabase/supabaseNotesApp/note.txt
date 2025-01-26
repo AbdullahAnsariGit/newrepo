@@ -1,0 +1,7 @@
+POLICY for bucket
+
+REATE POLICY "Allow Authenticated Users to Upload" 
+ON storage.objects
+FOR INSERT
+TO authenticated
+WITH CHECK (bucket_id = 'blogImages');
